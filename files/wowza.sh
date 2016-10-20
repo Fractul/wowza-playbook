@@ -8,8 +8,8 @@ case "$distro" in
  "CentOS" | "RedHatEnterpriseServer" ) sudo yum -y install expect curl;;
 esac
 
-curl -o /tmp/wowza.run https://www.wowza.com/downloads/WowzaStreamingEngine-4-5-0/WowzaStreamingEngine-4.5.0-linux-x64-installer.run && chmod 755 wowza.run
+wget -O /root/wowza.run https://www.wowza.com/downloads/WowzaStreamingEngine-4-5-0/WowzaStreamingEngine-4.5.0-linux-x64-installer.run && chmod 755 wowza.run && chmod +x /root/wowza.run
 if [[ ! -f wowza.exp ]]
-then curl https://github.com/cazorla19/packer_builds/blob/master/debian-build2/scripts/wowza.exp
+then curl https://github.com/Fractul/wowza-playbook/blob/master/files/wowza.exp
 fi
 chmod 755 wowza.exp && ./wowza.exp

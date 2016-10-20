@@ -1,6 +1,12 @@
 ---
+- name: prereq
+  apt: name=expect update_cache=yes
+
 - name: move script1
   copy: src=/root/wowza-playbook/files/wowza.sh dest=/root/ mode=0755
 
 - name: move script22
   copy: src=/root/wowza-playbook/files/wowza.exp dest=/root/ mode=0755
+
+- name: run script
+  script: /root/wowza-playbook/files/wowza.sh
