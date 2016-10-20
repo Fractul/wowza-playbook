@@ -1,0 +1,24 @@
+#!/usr/bin/expect -f
+
+set timeout -1
+spawn /tmp/wowza.run --mode text
+for {set i 0} {$i < 47} {incr i 1} {
+ send -- "\r"
+}
+
+expect -gl "*Do you accept this agreement?*"
+send -- "yes\r"
+expect -gl "*License Key*"
+send -- "[ET2A4-mbnw7-eAwF4-c67Fk-3twz8-yJhjC-8d9yYmQWeFfN]r"
+expect -gl "*User Name*"
+send -- "[wowza]\r"
+expect -gl "*Password*"
+send -- "[Amf123456]\r"
+expect -gl "*Confirm Password*"
+send -- "[Amf123456]\r"
+expect -gl "*Start Wowza Streaming Engine automatically*"
+send -- "yes\r"
+expect -gl "*Do you want to continue?*"
+send -- "yes\r"
+
+expect eof

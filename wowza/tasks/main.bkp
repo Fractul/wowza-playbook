@@ -1,0 +1,6 @@
+---
+  - name: move scripts
+    copy: src=/root/wowza-playbook/files/{{ items }} dest=/root/ mode=0755
+    with_item:
+      - "wowza.sh"
+      - "wowza.exp"
